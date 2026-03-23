@@ -1,0 +1,37 @@
+# --- Go specific ---
+# Бинарники
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Файлы тестов и профилирования
+*.test
+*.out
+coverage.txt
+cp.out
+
+# Воркспейсы
+go.work
+go.work.sum
+
+# --- Environment ---
+.env
+
+# --- OS & IDEs ---
+# Mac & Windows
+.DS_Store
+Thumbs.db
+
+# JetBrains (GoLand, IntelliJ)
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
