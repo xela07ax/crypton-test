@@ -24,7 +24,7 @@ func TestMapConcurrency(t *testing.T) {
 		}
 	}
 
-	// 2. Перемешиваем, чтобы доступ был хаотичным (как по ТЗ)
+	// 2. Перемешиваем, чтобы доступ был хаотичным (как по ТЗ - не должны обращаться последовательно)
 	rand.Shuffle(len(keys), func(i, j int) {
 		keys[i], keys[j] = keys[j], keys[i]
 	})
@@ -80,9 +80,8 @@ func TestMapConcurrency(t *testing.T) {
 			t.Fatalf("key %d: want %d, got %d", i, increments, cm.m[i])
 		}
 	}
-	
+
 	// --- Визуальная демонстрация результатов ---
-	// Отдельный под-тест исключительно для наглядного вывода в go test -v
 	t.Run("Visual_Dump", func(t *testing.T) {
 		t.Log("Демонстрация распределения значений (первые и последние ключи):")
 		for i := 1; i <= 5; i++ {
